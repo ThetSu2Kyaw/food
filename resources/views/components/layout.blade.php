@@ -90,7 +90,7 @@
           
   
 <li class="nav-item">
-  <a class="nav-link text-white " href="/admin">
+  <a class="nav-link text-white " href="/admin/dashboard">
     
       <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
         <i class="material-icons opacity-10">dashboard</i>
@@ -101,6 +101,17 @@
 </li>
 <hr class="horizontal light mt-0 mb-2">
   
+<li class="nav-item">
+  <a class="nav-link text-white " href="/admin/addAdmin">
+      <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+      <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M12 3C14.21 3 16 4.79 16 7S14.21 11 12 11 8 9.21 8 7 9.79 3 12 3M16 13.54C16 14.6 15.72 17.07 13.81 19.83L13 15L13.94 13.12C13.32 13.05 12.67 13 12 13S10.68 13.05 10.06 13.12L11 15L10.19 19.83C8.28 17.07 8 14.6 8 13.54C5.61 14.24 4 15.5 4 17V21H20V17C20 15.5 18.4 14.24 16 13.54Z" />
+      </svg>
+      </div>
+    
+    <span class="nav-link-text ms-1">Admin</span>
+  </a>
+</li>
 <li class="nav-item">
   <a class="nav-link text-white " href="/admin/menus">
     
@@ -139,109 +150,40 @@
     <span class="nav-link-text ms-1">Orders</span>
   </a>
 </li>
-  
-<!-- <li class="nav-item">
-  <a class="nav-link text-white " href="./billing.html">
-    
-      <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-        <i class="material-icons opacity-10">receipt_long</i>
-      </div>
-    
-    <span class="nav-link-text ms-1">Billing</span>
-  </a>
-</li> -->
-
-  
-<!-- <li class="nav-item">
-  <a class="nav-link text-white " href="./virtual-reality.html">
-    
-      <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-        <i class="material-icons opacity-10">view_in_ar</i>
-      </div>
-    
-    <span class="nav-link-text ms-1">Virtual Reality</span>
-  </a>
-</li> -->
-
-  
-<!-- <li class="nav-item">
-  <a class="nav-link text-white " href="./rtl.html">
-    
-      <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-        <i class="material-icons opacity-10">format_textdirection_r_to_l</i>
-      </div>
-    
-    <span class="nav-link-text ms-1">RTL</span>
-  </a>
-</li> -->
-
-  
-<!-- <li class="nav-item">
-  <a class="nav-link text-white " href="./notifications.html">
-    
-      <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-        <i class="material-icons opacity-10">notifications</i>
-      </div>
-    
-    <span class="nav-link-text ms-1">Notifications</span>
-  </a>
-</li> -->
-
-  
-    <li class="nav-item mt-3">
-      <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
-    </li>
-  
 <li class="nav-item">
-  <a class="nav-link text-white " href="./profile.html">
+  <a class="nav-link text-white " href="/admin/customers">
     
       <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-        <i class="material-icons opacity-10">person</i>
+      <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M15,14C12.33,14 7,15.33 7,18V20H23V18C23,15.33 17.67,14 15,14M15,12A4,4 0 0,0 19,8A4,4 0 0,0 15,4A4,4 0 0,0 11,8A4,4 0 0,0 15,12M5,13.28L7.45,14.77L6.8,11.96L9,10.08L6.11,9.83L5,7.19L3.87,9.83L1,10.08L3.18,11.96L2.5,14.77L5,13.28Z" />
+      </svg>
       </div>
     
-    <span class="nav-link-text ms-1">Profile</span>
+    <span class="nav-link-text ms-1">Customers</span>
   </a>
 </li>
-
+    
+<li class="nav-item mt-3">
+  <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
+</li>
   
 <li class="nav-item">
-  <a class="nav-link text-white " href="/">
+  <form action="/admin/{{auth()->id()}}/logout" method="POST">
+    @csrf
+    <button class="btn btn-link nav-link text-white" href="/admin/logout" style="width: 87%;">
     
       <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
         <i class="material-icons opacity-10">logout</i>
       </div>
     
     <span class="nav-link-text ms-1">Logout</span>
-  </a>
-</li>
-
-
-  
-<!-- <li class="nav-item">
-  <a class="nav-link text-white " href="./sign-up.html">
-    
-      <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-        <i class="material-icons opacity-10">assignment</i>
-      </div>
-    
-    <span class="nav-link-text ms-1">Sign Up</span>
-  </a>
-</li> -->
-
-
-
-        
-
-        
-      
+    </button>
+  </form>
+</li>      
     </ul>
   </div>
   
   <div class="sidenav-footer position-absolute w-100 bottom-0 ">
-    <!-- <div class="mx-3">
-      <a class="btn bg-gradient-primary mt-4 w-100" href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree" type="button">Upgrade to pro</a>
-    </div> -->
-    
   </div>
   
 </aside>
@@ -271,17 +213,20 @@
       </div>
       <ul class="navbar-nav  justify-content-end">
         <li class="nav-item d-flex align-items-center">
-          <a href="./pages/sign-in.html" class="nav-link text-body font-weight-bold px-0">
-            <i class="fa fa-user me-sm-1"></i>Admin Name
+          <!-- <a href="./pages/sign-in.html" class="nav-link text-body font-weight-bold px-0"> -->
+            <i class="fa fa-user me-sm-1"></i>{{auth()->user()->name}}
             
             
             
-          </a>
+          <!-- </a> -->
         </li>
         <li class="nav-item d-flex align-items-center">
-          <a href="/" class="nav-link text-body font-weight-bold px-0">
-            <i class="material-icons opacity-10 ms-4" style="position: relative; top: 2px;">logout</i>
-          </a>
+          <form action="/admin/{{auth()->id()}}/logout" method="POST">
+            @csrf
+            <button class="btn btn-link nav-link text-body font-weight-bold px-0">
+                <i class="material-icons opacity-10 ms-4" style="position: relative; top: 6px;">logout</i>
+            </button>
+          </form>
         </li>
         <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
           <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">

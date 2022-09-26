@@ -31,7 +31,7 @@
 
                     <tr>
                       <td class="text-left">
-                        <div class="d-flex justify-content-center px-2">
+                        <div class="d-flex justify-content-center align-items-center px-2">
                           <!-- <div>
                             <img src="../assets/img/small-logos/logo-asana.svg" class="avatar avatar-sm rounded-circle me-2" alt="spotify">
                           </div> -->
@@ -52,7 +52,7 @@
                       <td>
                         
                         <!-- <span class="text-xs font-weight-bold"> -->
-                          <img src='{{"/storage/$menu->image"}}' alt="" height="100" width="100">
+                          <img src='{{"/storage/$menu->image"}}' alt="" height="100" width="100" class="rounded">
                         <!-- </span> -->
                       </td>
                       <td>
@@ -64,15 +64,15 @@
                             <img src="../assets/img/small-logos/logo-asana.svg" class="avatar avatar-sm rounded-circle me-2" alt="spotify">
                           </div> -->
                             <a href="/admin/menus/{{$menu->id}}">
-                              <button class="btn btn-sm bg-warning text-white">Read More</button>
+                              <button class="btn btn-sm bg-warning text-white position-relative" style="top: 8px;">Read More</button>
                             </a>
                             <a href="/admin/menus/{{$menu->id}}/edit">
-                              <button class="btn btn-sm bg-warning text-white ms-2">Edit</button>
+                              <button class="btn btn-sm bg-warning text-white ms-2 position-relative" style="top: 8px;">Edit</button>
                             </a>
                             <form action="/admin/menus/{{$menu->id}}" method="POST">
                               @csrf
                               @method('DELETE')
-                              <button class="btn btn-sm bg-danger text-white ms-2">Delete</button>
+                              <button class="btn btn-sm bg-danger text-white ms-2 position-relative" style="top: 8px;">Delete</button>
                             </form>
                         </div>
                       </td>

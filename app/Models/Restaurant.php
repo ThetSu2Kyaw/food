@@ -9,15 +9,21 @@ class Restaurant extends Model
 {
     use HasFactory;
 
+    // protected $with = ['menus', 'township'];
+
     public function township(){
-        return $this->belongsTo(Restaurant::class);
+        return $this->belongsTo(Township::class);
     }
 
     public function menus(){
         return $this->hasMany(Menu::class);
     }
 
-    public function restaurant_categories(){
-        return $this->hasMany(RestaurantCategory::class, 'id');
+    public function restaurant_category(){
+        return $this->belongsTo(RestaurantCategory::class);
+    }
+
+    public function orders(){
+        return $this->hasMany(Order::class);
     }
 }

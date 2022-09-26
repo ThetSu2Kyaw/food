@@ -9,13 +9,17 @@ class Order extends Model
 {
     use HasFactory;
 
-    protected $with = ['customer', 'restaurant'];
+    protected $with = ['restaurant', 'order_details'];
 
     public function customer(){
-        return $this->belongsTo(Customer::class);
+        return $this->belongsTo(Customer::class, 'customer_id');
     }
 
     public function restaurant(){
         return $this->belongsTo(Restaurant::class);
+    }
+
+    public function order_details(){
+        return $this->hasMany(OrderDetail::class);
     }
 }

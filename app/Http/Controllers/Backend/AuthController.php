@@ -3,13 +3,10 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Customer;
-use App\Models\Menu;
-use App\Models\Order;
-use App\Models\Restaurant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class AdminController extends Controller
+class AuthController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,12 +15,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('backend.admin.dashboard', [
-            "menus" => Menu::all(),
-            "restaurants" => Restaurant::all(),
-            "orders" => Order::all(),
-            "customers" => Customer::all()
-        ]);
+        //
     }
 
     /**
@@ -33,7 +25,20 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        $formData = request()->validate([
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+
+        if (Auth::attempt($formData)) {
+            if(auth()->user()->is_admin == "1"){
+                return redirect('/admin/dashboard');    
+            }else{
+                return redirect('/');
+            }
+        }else{
+            return "something wrong!";
+        }
     }
 
     /**
@@ -90,5 +95,11 @@ class AdminController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function logout($id){
+        Auth::logout();
+        return redirect('/');
     }
 }

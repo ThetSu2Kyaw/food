@@ -66,9 +66,11 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Restaurant $restaurant)
     {
-        //
+        return view('backend.admin.restaurant.show', [
+            "rest" => $restaurant
+        ]);
     }
 
     /**
@@ -77,9 +79,13 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Restaurant $restaurant)
     {
-        //
+        return view('backend.admin.restaurant.edit', [
+            "rest" => $restaurant,
+            "rest_categories" => RestaurantCategory::all(),
+            "townships" => Township::all()
+        ]);
     }
 
     /**
@@ -89,9 +95,23 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Restaurant $restaurant)
     {
-        //
+        $formData = request()->validate([
+            "name" => ['required'],
+            "address" => ['required'],
+            "phone" => ['required'],
+            "is_open" => ['required'],
+            "is_promotion" => ['required'],
+            "township_id" => ['required'],
+            "restaurant_category_id" => ['required']
+        ]);
+
+        $formData['image'] = request('image')? request('image')->store('restaurants'): $restaurant->image;
+
+        $restaurant->update($formData);
+
+        return redirect('/admin/restaurants');
     }
 
     /**
@@ -100,8 +120,9 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Restaurant $restaurant)
     {
-        //
+        $restaurant->delete();
+        return redirect('/admin/restaurants');
     }
 }

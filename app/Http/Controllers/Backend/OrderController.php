@@ -16,7 +16,7 @@ class OrderController extends Controller
     public function index()
     {
         return view("backend.admin.order.index", [
-            "orders" => Order::paginate(10)
+            "orders" => Order::latest()->paginate(10)
         ]);
     }
 
@@ -27,7 +27,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+        return view("backend.admin.order.create");
     }
 
     /**
@@ -47,9 +47,12 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Order $order)
     {
-        //
+        return view("backend.admin.order.show", [
+            'order' => $order,
+            'order_details' => $order->order_details
+        ]);
     }
 
     /**
@@ -81,8 +84,10 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Order $order)
     {
-        //
+        $order->delete();
+
+        return redirect("/admin/orders");
     }
 }

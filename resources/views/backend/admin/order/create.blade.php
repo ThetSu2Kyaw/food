@@ -4,11 +4,11 @@
       <span class="mask bg-transparent opacity-6"></span>
       <div class="container mt-2">
         <div class="row">
-            <h5 class="text-center mb-3">Create Menu</h5>
+            <h5 class="text-center mb-3">Create Order</h5>
           <div class="col-lg-8 col-md-8 col-12 mx-auto">
             <div class="card z-index-0 fadeIn3 fadeInBottom">
               <div class="card-body mt-2">
-                <form class="text-start p-2" action="/admin/menus/store" method="POST" enctype="multipart/form-data">
+                <form class="text-start p-2" action="/admin/orders/store" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="input-group input-group-static is-invalid mb-4">
                       <label>Name</label>

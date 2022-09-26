@@ -30,7 +30,7 @@
 
                     <tr>
                       <td class="text-left">
-                        <div class="d-flex justify-content-center px-2">
+                        <div class="d-flex justify-content-center align-items-center px-2">
                           <!-- <div>
                             <img src="../assets/img/small-logos/logo-asana.svg" class="avatar avatar-sm rounded-circle me-2" alt="spotify">
                           </div> -->
@@ -44,7 +44,7 @@
                       </td>
                       <td>
                         <span class="text-xs font-weight-bold">
-                          <img src="/storage/{{$rest->image}}" alt="" width="100" height="100">
+                          <img src="/storage/{{$rest->image}}" alt="" width="100" height="100" class="rounded">
                         </span>
                       </td>
                       <td>
@@ -57,9 +57,7 @@
                         </div>
                       </td>
                       <td>
-                        @foreach($rest->restaurant_categories as $category)
-                            <span class="text-xs font-weight-bold">{{$category->name}}</span>
-                        @endforeach
+                        <span class="text-xs font-weight-bold">{{$rest->restaurant_category->name}}</span>
                       </td>
                       <td class="text-center">
                         <div class="d-flex justify-content-center px-2">
@@ -67,15 +65,15 @@
                             <img src="../assets/img/small-logos/logo-asana.svg" class="avatar avatar-sm rounded-circle me-2" alt="spotify">
                           </div> -->
                             <a href="/admin/restaurants/{{$rest->id}}">
-                              <button class="btn btn-sm bg-warning text-white">Read More</button>
+                              <button class="btn btn-sm bg-warning text-white position-relative" style="top: 8px;">Read More</button>
                             </a>
                             <a href="/admin/restaurants/{{$rest->id}}/edit">
-                              <button class="btn btn-sm bg-warning text-white ms-2">Edit</button>
+                              <button class="btn btn-sm bg-warning text-white ms-2 position-relative" style="top: 8px;">Edit</button>
                             </a>
                             <form action="/admin/restaurants/{{$rest->id}}" method="POST">
                               @csrf
                               @method('DELETE')
-                              <button class="btn btn-sm bg-danger text-white ms-2">Delete</button>
+                              <button class="btn btn-sm bg-danger text-white ms-2 position-relative" style="top: 8px;">Delete</button>
                             </form>
                         </div>
                       </td>

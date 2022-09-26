@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\OrderController;
+use App\Http\Controllers\Api\RestaurantController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +17,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:customer')->get('/customer', function (Request $request) {
+    
+// });
+
+Route::middleware('auth:customer')->group(function(){
+    Route::post('customers/logout', [AuthController::class, 'logout']);
 });
+
+Route::post('customers/login', [AuthController::class, 'login']);
+Route::post('customers/register', [AuthController::class, 'register']);
+
+
+Route::apiResource('restaurants', RestaurantController::class);
+
+Route::get('orders/{id}', [OrderController::class, 'show']);

@@ -1,15 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Customer;
-use App\Models\Menu;
-use App\Models\Order;
-use App\Models\Restaurant;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,11 +14,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('backend.admin.dashboard', [
-            "menus" => Menu::all(),
-            "restaurants" => Restaurant::all(),
-            "orders" => Order::all(),
-            "customers" => Customer::all()
+        return view("backend.admin.customer.index", [
+            "customers" => Customer::latest()->paginate(10)
         ]);
     }
 
@@ -53,9 +46,11 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Customer $customer)
     {
-        //
+        return view("backend.admin.customer.show", [
+            "cus" => $customer
+        ]);
     }
 
     /**

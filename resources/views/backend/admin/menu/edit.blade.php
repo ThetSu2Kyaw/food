@@ -11,46 +11,41 @@
                 <form class="text-start p-2" action="/admin/menus/{{$menu->id}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('put')
-                  <div class="input-group input-group-outline my-3">
-                    <!-- <label class="form-label">Name</label> -->
-                    <input type="text" class="form-control" name="name" value="{{$menu->name}}">
-                  </div>
-                  <div class="input-group input-group-outline mb-3">
-                    <!-- <label class="form-label">Category</label> -->
-                    <!-- <input type="password" class="form-control"> -->
-                    <select name="menu_category_id" class="form-control">
+                    <div class="input-group input-group-static is-invalid mb-4">
+                      <label>Name</label>
+                      <input type="text" class="form-control" name="name" value="{{$menu->name}}">
+                    </div>
+                    <div class="input-group input-group-static is-invalid mb-4">
+                      <label for="category" class="ms-0">Menu Category</label>
+                      <select class="form-control" id="category" name="menu_category_id">
                         @foreach($categories as $cat)
-                            <option value="{{$cat->id}}" {{$menu->menu_category_id==$cat->id? 'selected': ''}}>{{$cat->name}}</option>
+                            <option value="{{$cat->id}}" {{$cat->id == $menu->menu_category_id? 'selected': ''}}>{{$cat->name}}</option>
                         @endforeach
-                    </select>
-                  </div>
-                  <div class="input-group input-group-outline mb-3">
-                    <!-- <label class="form-label">Description</label> -->
-                    <textarea name="description" class="form-control">
-                      {{$menu->description}}
-                    </textarea>
-                  </div>
-                  <div class="input-group input-group-outline mb-3">
-                    <label class="form-label">Price</label>
-                    <input type="text" class="form-control" name="price" value="{{$menu->price}}">
-                  </div>
-                  <div class="input-group input-group-outline mb-3">
-                    <!-- <label class="form-label">Image</label> -->
-                    <input type="file" class="form-control" name="image">
-                  </div>
-                  <div class="input-group input-group-outline mb-3">
-                    <!-- <label class="form-label">Restaurant</label> -->
-                    <select name="restaurant_id" class="form-control">
+                      </select>
+                    </div>
+                    <div class="input-group input-group-dynamic is-invalid mb-4">
+                      <textarea class="form-control" rows="5" placeholder="Description" spellcheck="false" name="description">{{$menu->description}}</textarea>
+                    </div>
+                    <div class="input-group input-group-static is-invalid mb-4">
+                      <label>Price</label>
+                      <input type="text" class="form-control" name="price" value="{{$menu->price}}">
+                    </div>
+                    <div class="input-group input-group-static is-invalid mb-4">
+                      <label>Image</label>
+                      <input type="file" class="form-control" name="image">
+                      <img src="/storage/{{$menu->image}}" height="100" width="100" class="mt-2 rounded">
+                    </div>
+                    <div class="input-group input-group-static is-invalid mb-4">
+                      <label for="restaurant" class="ms-0">Restaurant</label>
+                      <select class="form-control" id="restaurant" name="restaurant_id">
                         @foreach($restaurants as $rest)
-                          <option value="{{$rest->id}}" {{$menu->restaurant_id==$rest->id? 'selected': ''}}>{{$rest->name}}</option>
+                            <option value="{{$rest->id}}" {{$rest->id == $menu->restaurant_id? 'selected': ''}}>{{$rest->name}}</option>
                         @endforeach
-                    </select>
-                  </div>
-                  <div class="text-center">
-                    <button type="submit" class="btn bg-primary text-white w-100 my-4 mb-2">
-                        Update
-                    </button>
-                  </div>
+                      </select>
+                    </div>
+                    <div>
+                      <button class="btn btn-danger btn-lg w-100 mt-2">Update</button>
+                    </div>
                 </form>
               </div>
             </div>

@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class OrderDetail extends Model
 {
     use HasFactory;
+
+    protected $with = ["menu"];
+
+    public function menu(){
+        return $this->belongsTo(Menu::class, 'menu_id');
+    }
 }

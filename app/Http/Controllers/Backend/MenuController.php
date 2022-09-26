@@ -18,7 +18,7 @@ class MenuController extends Controller
     public function index()
     {
         return view('backend.admin.menu.index', [
-            "menus" => Menu::paginate(5)
+            "menus" => Menu::latest()->paginate(5)
         ]);
     }
 

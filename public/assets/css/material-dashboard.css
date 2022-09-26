@@ -3494,7 +3494,7 @@ textarea.form-control.is-valid {
 
 .was-validated .form-control:invalid,
 .form-control.is-invalid {
-  border-color: #fd5c70;
+  border-color: #fd7e14;
   padding-right: unset;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23fd5c70' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23fd5c70' stroke='none'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
@@ -3504,7 +3504,7 @@ textarea.form-control.is-valid {
 
 .was-validated .form-control:invalid:focus,
 .form-control.is-invalid:focus {
-  border-color: #fd5c70;
+  border-color: #fd7e14;
   box-shadow: 0 0 0 2px rgba(253, 92, 112, 0.25);
 }
 
@@ -3516,7 +3516,7 @@ textarea.form-control.is-invalid {
 
 .was-validated .form-select:invalid,
 .form-select.is-invalid {
-  border-color: #fd5c70;
+  border-color: #fd7e14;
 }
 
 .was-validated .form-select:invalid:not([multiple]):not([size]),
@@ -3531,7 +3531,7 @@ textarea.form-control.is-invalid {
 
 .was-validated .form-select:invalid:focus,
 .form-select.is-invalid:focus {
-  border-color: #fd5c70;
+  border-color: #fd7e14;
   box-shadow: 0 0 0 2px rgba(253, 92, 112, 0.25);
 }
 
@@ -3547,7 +3547,7 @@ textarea.form-control.is-invalid {
 
 .was-validated .form-check-input:invalid:checked,
 .form-check-input.is-invalid:checked {
-  background-color: #fd5c70;
+  background-color: #fd7e14;
 }
 
 .was-validated .form-check-input:invalid:focus,
@@ -3557,7 +3557,7 @@ textarea.form-control.is-invalid {
 
 .was-validated .form-check-input:invalid~.form-check-label,
 .form-check-input.is-invalid~.form-check-label {
-  color: #fd5c70;
+  color: #fd7e14;
 }
 
 .form-check-inline .form-check-input~.invalid-feedback {
@@ -22100,14 +22100,14 @@ body.dark-version {
 
 .input-group.input-group-dynamic.is-focused.is-invalid label,
 .input-group.input-group-static.is-focused.is-invalid label {
-  color: #F44335;
+  color: #fd7e14;
 }
 
 .input-group.input-group-dynamic.is-focused.is-invalid .form-control,
 .input-group.input-group-dynamic.is-focused.is-invalid .form-control:focus,
 .input-group.input-group-static.is-focused.is-invalid .form-control,
 .input-group.input-group-static.is-focused.is-invalid .form-control:focus {
-  background-image: linear-gradient(0deg, #F44335 2px, rgba(156, 39, 176, 0) 0), linear-gradient(0deg, #d2d2d2 1px, rgba(209, 209, 209, 0) 0);
+  background-image: linear-gradient(0deg, #fd7e14 2px, rgba(156, 39, 176, 0) 0), linear-gradient(0deg, #d2d2d2 1px, rgba(209, 209, 209, 0) 0);
   border-radius: 0 !important;
 }
 
@@ -22262,22 +22262,22 @@ body.dark-version {
 
 .input-group.input-group-outline.is-invalid.is-focused .form-label+.form-control,
 .input-group.input-group-outline.is-invalid.is-filled .form-label+.form-control {
-  border-color: #F44335 !important;
-  box-shadow: inset 1px 0 #F44335, inset -1px 0 #F44335, inset 0 -1px #F44335;
+  border-color: #fd7e14 !important;
+  box-shadow: inset 1px 0 #F44335, inset -1px 0 #fd7e14, inset 0 -1px #fd7e14;
   border-top-color: transparent !important;
 }
 
 .input-group.input-group-outline.is-invalid.is-focused .form-label,
 .input-group.input-group-outline.is-invalid.is-filled .form-label {
-  color: #F44335;
+  color: #fd7e14;
 }
 
 .input-group.input-group-outline.is-invalid.is-focused .form-label:before,
 .input-group.input-group-outline.is-invalid.is-focused .form-label:after,
 .input-group.input-group-outline.is-invalid.is-filled .form-label:before,
 .input-group.input-group-outline.is-invalid.is-filled .form-label:after {
-  border-top-color: #F44335;
-  box-shadow: inset 0 1px #F44335;
+  border-top-color: #fd7e14;
+  box-shadow: inset 0 1px #fd7e14;
 }
 
 .input-group.input-group-outline.input-group-sm .form-label,
@@ -22467,7 +22467,7 @@ label,
 }
 
 .form-control.is-invalid {
-  border: 1px solid #d2d6da;
+  border: 1px solid #fd7e14;
   padding: 0.625rem 0.75rem;
   line-height: 1.3 !important;
 }
