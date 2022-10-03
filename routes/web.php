@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\ApiController;
+use App\Http\Controllers\Api\OrderController as ApiOrderController;
 use App\Http\Controllers\Backend\AddAdminController;
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\AuthController;
@@ -8,6 +9,8 @@ use App\Http\Controllers\Backend\RestaurantController;
 use App\Http\Controllers\Backend\MenuController;
 use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\Frontend\AuthController as FrontendAuthController;
+use App\Http\Controllers\Frontend\RestaurantController as FrontendRestaurantController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,7 +24,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [OrderController::class, 'index']);
+Route::get('/', function(){
+    return redirect('/restaurants');
+});
+
+Route::resource('restaurants', FrontendRestaurantController::class);
+
+Route::get('/restaurants/detail', function(){
+    return view("restaurant");
+});
 
 Route::get('/admin', function(){
     return view("backend.admin.index");
@@ -41,4 +52,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function(){
     Route::post('restaurants/store', [RestaurantController::class, 'store']);
     Route::resource('orders', OrderController::class);
     Route::resource('customers', CustomerController::class);
+});
+
+// signup
+Route::get('signup', [FrontendAuthController::class, 'index']);
+Route::get('login', [FrontendAuthController::class, 'login_index']);
+
+Route::get('account', function(){
+    return view('account');
 });

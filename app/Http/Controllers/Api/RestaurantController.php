@@ -10,9 +10,8 @@ use Illuminate\Http\Request;
 class RestaurantController extends BaseController
 {
     public function index(){
-        return $this->successResponse([
-            "restaurants" => RestaurantResource::collection(Restaurant::all())
-        ]);
+        return $this->successResponse(
+             RestaurantResource::collection(Restaurant::with('restaurant_category')->get()));
     }   
 
     public function show($id){

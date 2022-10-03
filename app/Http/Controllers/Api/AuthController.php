@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Hash;
 class AuthController extends BaseController
 {
     public function login(Request $request){
-
         $formData = request()->validate([
             "email" => 'required',
             "password" => 'required'
@@ -51,8 +50,7 @@ class AuthController extends BaseController
    }
 
    public function logout(){
-    $user =  Auth::user();
-    $user->token()->revoke();
+    auth()->user()->token()->revoke();
     return 'success';
     // if (Auth::check()) {
     //     Auth::customer()->token()->revoke();

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\OrderController;
+use App\Http\Controllers\Api\OrderDetailController;
 use App\Http\Controllers\Api\RestaurantController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -23,12 +24,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:customer')->group(function(){
     Route::post('customers/logout', [AuthController::class, 'logout']);
+    Route::apiResource('orders', OrderController::class);
+    Route::apiResource('orderdetails', OrderDetailController::class);
 });
 
 Route::post('customers/login', [AuthController::class, 'login']);
 Route::post('customers/register', [AuthController::class, 'register']);
 
-
 Route::apiResource('restaurants', RestaurantController::class);
 
-Route::get('orders/{id}', [OrderController::class, 'show']);
+
+
